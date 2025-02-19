@@ -1,13 +1,14 @@
-type Context = {}
+--!strict
+local types = require(script.Parent.types)
 
 local context = {}
 local currentContext = nil
 
-function context.getContext()
-	return currentContext
+function context.getContext(): types.Context
+	return currentContext or {}
 end
 
-function context.withContext(newContext: Context, callback)
+function context.withContext(newContext: types.Context, callback: (types.Context) -> ())
 	local oldContext = currentContext
 
 	currentContext = newContext
@@ -21,7 +22,7 @@ function context.withContext(newContext: Context, callback)
 	end
 end
 
-function context.withInnerContext(makeContext: (Context) -> Context, callback)
+function context.withInnerContext(makeContext: (types.Context) -> types.Context, callback)
 	local outerContext = context.getContext()
 	local innerContext = makeContext(outerContext)
 
