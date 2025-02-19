@@ -1,2 +1,2 @@
 # tinunit
- Basic unit testing module for Luau.
+ Basic unit testing module for Roblox Luau.
