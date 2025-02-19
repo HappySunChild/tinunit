@@ -84,7 +84,7 @@ local function expect(value: any)
 	function methods.near(otherValue: number, epsilon: number)
 		assertFail(type(value) == 'number', "Expectation value must be a number to use 'near'")
 		assertFail(type(otherValue) == 'number', 'otherValue must be a number')
-		assertFail(type(epsilon) == 'number' or epsilon == nil, 'epsilon must be a number of nil')
+		assertFail(type(epsilon) == 'number' or epsilon == nil, 'epsilon must be a number or nil')
 
 		epsilon = epsilon or 0.001
 
@@ -148,7 +148,7 @@ local function expect(value: any)
 		return methods
 	end
 
-	methods.an = methods.an
+	methods.an = methods.a
 
 	newExpectation.be = methods
 	newExpectation.to = methods
