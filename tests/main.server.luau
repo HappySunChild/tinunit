@@ -1,7 +1,7 @@
 local ServerScriptService = game:GetService 'ServerScriptService'
 
 local tinunit = require(ServerScriptService.tinunit)
-local describe, test, expect = tinunit.decribe, tinunit.test, tinunit.expect
+local describe, test, expect = tinunit.describe, tinunit.test, tinunit.expect
 
 local function exampleTest()
 	describe('epic feature', function()
@@ -14,7 +14,7 @@ local function exampleTest()
 			expect(function()
 					error 'goodbye'
 				end).to
-				.never()
+				.never
 				.throw()
 		end)
 
@@ -24,7 +24,7 @@ local function exampleTest()
 	end)
 end
 
-local tests = tinunit.collectTests(exampleTest)
+local tests = tinunit.collectUnitTests(exampleTest)
 local results = tinunit.runTests(tests)
 
 print(tinunit.formatRunResults(results))
