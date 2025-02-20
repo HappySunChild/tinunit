@@ -29,4 +29,29 @@ export type DescribeContext = {
 export type RunContext = {}
 export type Context = DescribeContext | RunContext
 
+export type Expectation<V> = {
+	_value: V,
+	_condition: boolean,
+
+	also: Expectation<V>,
+	please: Expectation<V>,
+	have: Expectation<V>,
+	to: Expectation<V>,
+	be: Expectation<V>,
+	ever: Expectation<V>,
+	never: Expectation<V>,
+
+	ok: () -> Expectation<V>,
+	a: (class: string) -> Expectation<V>,
+	an: (class: string) -> Expectation<V>,
+	equal: (other: any) -> Expectation<V>,
+	near: (other: number, epsilon: number) -> Expectation<V>,
+	above: (other: number) -> Expectation<V>,
+	below: (other: number) -> Expectation<V>,
+	throw: (message: string?) -> Expectation<V>,
+	work: () -> Expectation<V>,
+	key: (key: any) -> Expectation<V>,
+	value: (value: any) -> Expectation<V>,
+}
+
 return nil
