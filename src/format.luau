@@ -48,7 +48,7 @@ local function format(results: types.RunResults)
 			output ..= `{STATUS_ICONS.fail} {table.concat(test.labels, BREADCRUMB)}\n  |\n  | {err.message}\n  |`
 
 			local trace = err.trace:gsub('\n+$', ''):gsub('\n', '\n  | ')
-			output ..= `\n  | Stack Trace:\n  | {trace}\n\n`
+			output ..= `\n  | Stack Trace:\n  | {trace}\n`
 		end
 	else
 		output ..= `No errors in {#results.tests} test(s)!`
