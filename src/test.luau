@@ -10,7 +10,7 @@ local function test(label: string, callback: () -> ())
 	end
 
 	local labels = table.clone(currentContext.labels)
-	table.insert(labels, 1, label)
+	table.insert(labels, label)
 	table.insert(currentContext.tests, {
 		labels = labels,
 		callback = callback,
