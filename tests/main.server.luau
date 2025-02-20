@@ -13,13 +13,11 @@ local function exampleTest()
 		test('throw test', function()
 			expect(function()
 					error 'goodbye'
-				end).to
-				.never
-				.throw()
+				end).to.throw('goodbye')
 		end)
 
 		test('key test', function()
-			expect(1).to.have.value(123)
+			expect({}).to.have.key('test')
 		end)
 	end)
 end
